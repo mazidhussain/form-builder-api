@@ -7,6 +7,7 @@ import { UpdateFormDto } from './dto/update-form.dto';
 
 @Injectable()
 export class FormsService {
+  forms: any;
   constructor(
     @InjectModel('Form') private readonly formModel: Model<Form>,
   ) { }
@@ -18,5 +19,13 @@ export class FormsService {
 
   async update(id: string, updateFormDto: UpdateFormDto): Promise<Form> {
     return await this.formModel.findByIdAndUpdate(id, updateFormDto, { new: true }).exec();
+  }
+
+  async findAll(): Promise<Form[]> {
+    return this.formModel.find().exec();
+  }
+
+  async findOne(id: string): Promise<Form> {
+    return await this.formModel.findByIdAndUpdate((id)).exec();
   }
 }
