@@ -1,23 +1,19 @@
-// src/schemas/form.schema.ts
 import { Schema, Document } from 'mongoose';
 
 export interface Form extends Document {
   name: string;
-  description?: string;
-  formData?: Record<string, any>;
+  description: string;
+  formData: Object;
 }
 
-export const FormSchema = new Schema<Form>({
-  name: {
-    type: String,
-    required: true,  // Ensure 'name' is required
-  },
-  description: {
-    type: String,
-    required: false, // 'description' is optional
-  },
-  formData: {
-    type: Schema.Types.Mixed,
-    required: false, // 'formData' is optional
+export const FormSchema = new Schema({
+  name: { type: String, required: true },
+  description: { type: String, required: false },
+  formData: { 
+    type: [Schema.Types.Mixed], // Use Schema.Types.Mixed for flexibility
+    default: [] // Default to an empty array
   },
 });
+
+export const Form = 'Form'; 
+

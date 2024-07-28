@@ -1,9 +1,7 @@
-// src/forms/forms.controller.ts
 import { Controller, Post, Patch, Body, Param } from '@nestjs/common';
 import { FormsService } from './forms.service';
 import { CreateFormDto } from './dto/create-form.dto';
-import { UpdateFormDto } from './dto/update-form.dto';  // Create this DTO
-import { Form } from '../schemas/form.schema';
+import { UpdateFormDto } from './dto/update-form.dto'; 
 
 @Controller('forms')
 export class FormsController {

@@ -1,14 +1,13 @@
 // src/forms/dto/create-form.dto.ts
-import { IsString, IsOptional } from 'class-validator';
+import { IsString, IsObject } from 'class-validator';
 
 export class CreateFormDto {
   @IsString()
-  name: string;
+  readonly name: string;
 
-  @IsOptional()
   @IsString()
-  description?: string;
+  readonly description: string;
 
-  @IsOptional()
-  formData?: Record<string, any>;
+  @IsObject()
+  readonly formData: Object[];
 }

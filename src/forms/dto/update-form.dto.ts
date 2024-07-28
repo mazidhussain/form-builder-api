@@ -4,13 +4,13 @@ import { IsOptional, IsString, IsObject } from 'class-validator';
 export class UpdateFormDto {
   @IsOptional()
   @IsString()
-  name?: string;
+  readonly name?: string;
 
   @IsOptional()
   @IsString()
-  description?: string;
+  readonly description?: string;
 
   @IsOptional()
   @IsObject()
-  formData?: Record<string, any>;
+  readonly formData?: Object[];
 }
